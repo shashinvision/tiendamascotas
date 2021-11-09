@@ -13,24 +13,38 @@
       <li>
         <h3>Categorías</h3>
       </li>
-      <li>Categoría 1</li>
-      <li>Categoría 2</li>
-      <li>Categoría 3</li>
+      <li v-for="categoria in dataCategoria" :key="categoria.id">
+        {{ categoria.name }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   data() {
     return {
       IsActive: true,
+      categoria: 0,
     };
+  },
+  computed: {
+    ...mapGetters({
+      dataCategoria: "mostrarCarritoGet",
+    }),
   },
   methods: {
     tootle() {
       this.IsActive = !this.IsActive;
     },
+    ...mapActions({
+      getCategorias: "getCategoriasAPIAction",
+    }),
+  },
+  mounted() {
+    this.getCategorias();
   },
 };
 </script>
