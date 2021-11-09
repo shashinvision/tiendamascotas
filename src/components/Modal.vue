@@ -47,12 +47,16 @@
             </div>
           </div>
         </b-card>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between w-75 centrarCard">
           <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
             >Seguir comprando</b-button
           >
-          <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
-            >Seguir comprando</b-button
+          <b-button
+            class="mt-3"
+            block
+            @click="$bvModal.hide('modal-1')"
+            variant="success"
+            >Agregar a carro</b-button
           >
         </div>
       </div>
