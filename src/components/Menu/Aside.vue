@@ -13,8 +13,17 @@
       <li>
         <h3>Categorías</h3>
       </li>
-      <li v-for="categoria in dataCategoria" :key="categoria.id">
-        {{ categoria.name }}
+      <li
+        class="liLinks"
+        v-for="categoria in dataCategoria"
+        :key="categoria.id"
+      >
+        <router-link
+          class="links"
+          :to="{ name: 'Content', params: { id: categoria.id } }"
+        >
+          {{ categoria.name }}
+        </router-link>
       </li>
     </ul>
   </div>
@@ -157,5 +166,14 @@ export default {
   -webkit-transform: translateY(-200%) rotate(135deg) !important;
   -ms-transform: translateY(-200%) rotate(135deg) !important;
   transform: translateY(-200%) rotate(135deg) !important;
+}
+
+.links {
+  color: white;
+  text-decoration: none;
+}
+.liLinks:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 </style>

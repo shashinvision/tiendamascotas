@@ -3,6 +3,7 @@
     <div class="row mt-5 pt-5">
       <div class="col-12">
         <h2>Categoría 1</h2>
+        {{ this.$route.params.id }}
       </div>
     </div>
     <div class="row mt-5">
