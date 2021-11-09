@@ -13,7 +13,11 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success w-50" type="submit">
+            <button
+              class="btn btn-outline-success w-50"
+              type="submit"
+              @click.prevent="verCarrito"
+            >
               <b-iconstack font-scale="1">
                 <b-icon stacked icon="cart-plus" variant="success"></b-icon>
               </b-iconstack>
@@ -27,7 +31,14 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+export default {
+  methods: {
+    ...mapActions({
+      verCarrito: "mostrarCarritoAction",
+    }),
+  },
+};
 </script>
 
 <style lang="css" scoped>

@@ -1,6 +1,7 @@
 <template>
   <div class="mt-5 carrito container pt-3" v-show="visible">
     <h3>Resumen de Compra</h3>
+
     <!-- Producto 1  -->
     <div class="row mb-2">
       <hr />
@@ -104,11 +105,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
+  components: {},
+  computed: {
+    ...mapGetters({
+      visible: "carritoStadoGet",
+    }),
+  },
   data() {
-    return {
-      visible: true,
-    };
+    return {};
   },
 };
 </script>
