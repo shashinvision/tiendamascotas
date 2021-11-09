@@ -17,8 +17,8 @@
         </ul>
       </b-card-text>
 
-      <div class="flexBox">
-        <div class="def-number-input number-input border-danger">
+      <div>
+        <div class="d-flex justify-content-center mb-2">
           <button
             onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
             class="minus"
@@ -43,6 +43,11 @@
             </b-iconstack>
           </button>
         </div>
+
+        <b-button class="w-100" variant="primary">
+          <b-iconstack font-scale="1">
+            <b-icon stacked icon="cart-check" variant=""></b-icon> </b-iconstack
+        ></b-button>
       </div>
     </b-card>
   </div>
@@ -56,8 +61,5 @@ export default {};
 ul {
   list-style-type: none;
   margin-left: -30px;
-}
-.flexBox {
-  flex-direction: row-reverse;
 }
 </style>
