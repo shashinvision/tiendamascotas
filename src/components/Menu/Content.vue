@@ -1,5 +1,5 @@
 <template>
-  <main class="">
+  <main class="mt-5">
     <h2>Section title</h2>
   </main>
 </template>

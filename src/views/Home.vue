@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Header></Header>
+    <!-- <Header></Header> -->
     <div class="row">
       <div class="col-md-3 col-lg-2">
         <Aside></Aside>
@@ -19,14 +19,14 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import Aside from "../components/Menu/Aside.vue";
-import Header from "../components/Menu/Header.vue";
+// import Header from "../components/Menu/Header.vue";
 import Content from "../components/Menu/Content.vue";
 export default {
   name: "Home",
   components: {
     // HelloWorld,
     Aside,
-    Header,
+    // Header,
     Content,
   },
 };

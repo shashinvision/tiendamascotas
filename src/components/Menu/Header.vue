@@ -5,7 +5,9 @@
         <a class="navbar-brand" href="#">Carousel</a>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0"></ul>
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li></li>
+          </ul>
           <form class="d-flex">
             <input
               class="form-control me-2"
@@ -30,4 +32,4 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped></style>

@@ -1,224 +1,144 @@
 <template>
-  <nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-      <h3
-        class="
-          sidebar-heading
-          d-flex
-          justify-content-between
-          align-items-center
-          px-3
-          mt-4
-          mb-1
-          text-muted
-        "
-      >
-        <span>Categorías</span>
-        <a class="link-secondary" href="#" aria-label="Add a new report">
-          <span data-feather="plus-circle"></span>
-        </a>
-      </h3>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Dashboard
-          </a>
+  <div class="">
+    <div id="sidebar" :class="{ active: IsActive }">
+      <div class="hamburger toggle-btn" @click="tootle">
+        <div class="_layer -top"></div>
+        <div class="_layer -mid"></div>
+        <div class="_layer -bottom"></div>
+      </div>
+
+      <ul>
+        <li>
+          <img src="../../assets/logo.jpeg" alt="Logo Fazt" class="logo" />
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Orders
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Products
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Customers
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Reports
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <b-iconstack font-scale="1">
-              <b-icon
-                stacked
-                icon="journal-bookmark-fill"
-                variant="info"
-              ></b-icon>
-            </b-iconstack>
-            Integrations
-          </a>
-        </li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
       </ul>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
-// import { BCollapse } from "bootstrap-vue";
-
 export default {
-  components: {
-    // BRow,
-    // BCol,
+  data() {
+    return {
+      IsActive: true,
+    };
+  },
+  methods: {
+    tootle() {
+      this.IsActive = !this.IsActive;
+    },
   },
 };
 </script>
 
-<style lang="css">
-body {
-  font-size: 0.875rem;
+<style lang="css" scoped>
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.feather {
-  width: 16px;
-  height: 16px;
-  vertical-align: text-bottom;
-}
-
-/*
- * Sidebar
- */
-
-.sidebar {
+#sidebar {
   position: fixed;
-  top: 0;
-  /* rtl:raw:
-  right: 0;
-  */
-  bottom: 0;
-  /* rtl:remove */
+  width: 200px;
+  height: 100%;
+  background: #151719;
+  left: -200px;
+  transition: all 500ms linear;
+}
+
+#sidebar.active {
+  left: 0px;
+}
+
+#sidebar ul li {
+  color: rgba(230, 230, 230, 0.9);
+  list-style: none;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+  text-align: center;
+}
+
+.logo {
+  width: 70%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+#sidebar .toggle-btn {
+  position: absolute;
+  left: 230px;
+  top: 20px;
+  cursor: pointer;
+}
+
+#sidebar .toggle-btn span {
+  display: block;
+  width: 40px;
+  text-align: center;
+  font-size: 30px;
+  border: 3px solid #000;
+}
+
+.hamburger {
+  position: fixed;
+  background-color: transparent;
   left: 0;
-  z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
-
-.sidebar-sticky {
-  position: relative;
   top: 0;
-  height: calc(100vh - 48px);
-  padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}
-
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #727272;
-}
-
-.sidebar .nav-link.active {
-  color: #2470dc;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-}
-
-/*
- * Navbar
- */
-
-.navbar-brand {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0.25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
-}
-
-.navbar .navbar-toggler {
-  top: 0.25rem;
-  right: 1rem;
-}
-
-.navbar .form-control {
-  padding: 0.75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
-}
-
-.form-control-dark {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.form-control-dark:focus {
-  border-color: transparent;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
-}
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
+  height: 30px;
+  width: 30px;
+  padding: 20px 20px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.25s
+    cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  z-index: 1002;
+  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+.hamburger.is-active {
+  background-color: none;
+}
+._layer {
+  background: #333333;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  width: 28px;
+  height: 4px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+.hamburger:hover .-top {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.hamburger:hover .-bottom {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.hamburger.is-active .-top {
+  -webkit-transform: translateY(200%) rotate(45deg) !important;
+  -ms-transform: translateY(200%) rotate(45deg) !important;
+  transform: translateY(200%) rotate(45deg) !important;
+}
+.hamburger.is-active .-mid {
+  opacity: 0;
+}
+.hamburger.is-active .-bottom {
+  -webkit-transform: translateY(-200%) rotate(135deg) !important;
+  -ms-transform: translateY(-200%) rotate(135deg) !important;
+  transform: translateY(-200%) rotate(135deg) !important;
 }
 </style>
