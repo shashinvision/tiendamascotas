@@ -22,10 +22,10 @@
 
     <div>
       <div class="d-flex justify-content-center mb-2">
-        <button
+        <!-- <button
           onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-          class="minus"
-        >
+        > -->
+        <button @click="minus">
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-dash" variant=""></b-icon>
           </b-iconstack>
@@ -34,13 +34,13 @@
           class="quantity w-25"
           min="0"
           name="quantity"
-          value="1"
+          v-model="cantidadProductos"
           type="number"
         />
-        <button
+        <!-- <button
           onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-          class="plus"
-        >
+        > -->
+        <button @click="plus">
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-plus" variant=""></b-icon>
           </b-iconstack>
@@ -64,6 +64,22 @@ export default {
       default: () => {
         return {};
       },
+    },
+  },
+  data() {
+    return {
+      cantidadProductos: 0,
+    };
+  },
+  methods: {
+    minus() {
+      this.cantidadProductos--;
+      if (this.cantidadProductos < 0) {
+        this.cantidadProductos = 0;
+      }
+    },
+    plus() {
+      this.cantidadProductos++;
     },
   },
 };
