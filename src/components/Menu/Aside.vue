@@ -8,7 +8,9 @@
 
     <ul>
       <li>
-        <img src="@/assets/logo.jpeg" alt="Logo Fazt" class="logo" />
+        <router-link :to="{ name: 'Home' }">
+          <img src="@/assets/logo.jpeg" alt="Logo Fazt" class="logo"
+        /></router-link>
       </li>
       <li>
         <h3>Categorías</h3>
