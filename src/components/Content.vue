@@ -19,14 +19,18 @@
         <Card></Card>
       </div>
     </div>
+    <Modal></Modal>
   </div>
 </template>
 
 <script>
 import Card from "@/components/Card.vue";
+import Modal from "@/components/Modal.vue";
+
 export default {
   components: {
     Card,
+    Modal,
   },
 };
 </script>

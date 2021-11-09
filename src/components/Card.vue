@@ -44,7 +44,7 @@
           </button>
         </div>
 
-        <b-button class="w-100" variant="primary">
+        <b-button class="w-100" variant="primary" v-b-modal.modal-1>
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-check" variant=""></b-icon> </b-iconstack
         ></b-button>
@@ -54,7 +54,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  components: {},
+};
 </script>
 
 <style lang="css" scoped>
