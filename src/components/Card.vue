@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 ul {
   list-style-type: none;
   margin-left: -30px;

@@ -1,7 +1,61 @@
 <template>
-  <div>
-    <b-modal id="modal-1" title="BootstrapVue">
-      <p class="my-4">Hello from modal!</p>
+  <div class="d-flex">
+    <b-modal id="modal-1" title="Producto agregado" hide-footer>
+      <div>
+        <b-card
+          title="Card Title"
+          img-src="https://picsum.photos/600/300/?image=25"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem"
+          class="mb-2 centrarCard"
+        >
+          <b-card-text>
+            <ul>
+              <li><b>Stock:</b> Disponible</li>
+              <li><b>Nombre Producto:</b> Lorem, ipsum dolor.</li>
+              <li><b>Precio Producto:</b> $10.000.</li>
+            </ul>
+          </b-card-text>
+
+          <div>
+            <div class="d-flex justify-content-center mb-2">
+              <button
+                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                class="minus"
+              >
+                <b-iconstack font-scale="1">
+                  <b-icon stacked icon="cart-dash" variant=""></b-icon>
+                </b-iconstack>
+              </button>
+              <input
+                class="quantity w-25"
+                min="0"
+                name="quantity"
+                value="1"
+                type="number"
+              />
+              <button
+                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                class="plus"
+              >
+                <b-iconstack font-scale="1">
+                  <b-icon stacked icon="cart-plus" variant=""></b-icon>
+                </b-iconstack>
+              </button>
+            </div>
+          </div>
+        </b-card>
+        <div class="d-flex justify-content-between">
+          <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
+            >Seguir comprando</b-button
+          >
+          <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
+            >Seguir comprando</b-button
+          >
+        </div>
+      </div>
     </b-modal>
   </div>
 </template>
@@ -10,4 +64,9 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.centrarCard {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
