@@ -4,7 +4,7 @@
       <div>
         <b-card
           title=""
-          img-src="https://picsum.photos/600/300/?image=25"
+          :img-src="dataModal.dataProducto.photo"
           img-alt="Image"
           img-top
           tag="article"
@@ -13,9 +13,14 @@
         >
           <b-card-text>
             <ul>
-              <li><b>Nombre Producto:</b> Lorem, ipsum dolor.</li>
-              <li><b>Código Producto:</b> 23432</li>
-              <li><b>Precio Producto:</b> $10.000.</li>
+              {{
+                dataModal.dataProducto.name
+              }}
+              <li><b>Nombre Producto:</b> {{ dataModal.dataProducto.name }}</li>
+              <li><b>Código Producto:</b> {{ dataModal.dataProducto.code }}</li>
+              <li>
+                <b>Precio Producto:</b> ${{ dataModal.dataProducto.price }}.
+              </li>
               <li>
                 <div>
                   <div class="d-flex mb-2">
@@ -32,7 +37,7 @@
                       class="quantity w-25"
                       min="0"
                       name="quantity"
-                      value="1"
+                      v-model="dataModal.cantidadProductos"
                       type="number"
                     />
                     <button
@@ -78,7 +83,18 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+      dataModal: "dataModalGet",
+    }),
+  },
+};
 </script>
 
 <style lang="css" scoped>

@@ -13,6 +13,7 @@ export default new Vuex.Store({
     },
     categoriasState: {},
     productosStare: {},
+    dataModalState: {},
   },
   getters: {
     carritoStadoGet(state) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     productosGet(state) {
       return state.productosStare;
+    },
+    dataModalGet(state) {
+      return state.dataModalState;
     },
   },
   mutations: {
@@ -36,6 +40,10 @@ export default new Vuex.Store({
     getProductosAPIMutation(state, payload) {
       // console.log("payload mutation", payload);
       state.productosStare = payload;
+    },
+    cargaDataModalMutation(state, payload) {
+      // console.log("cargaDataModalMutation", payload);
+      state.dataModalState = payload;
     },
   },
 
@@ -72,6 +80,10 @@ export default new Vuex.Store({
         .catch(function (err) {
           console.error(err);
         });
+    },
+    cargaDataModalAction({ commit }, payload) {
+      // console.log("Data del action", payload);
+      commit("cargaDataModalMutation", payload);
     },
   },
 

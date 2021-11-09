@@ -47,15 +47,22 @@
         </button>
       </div>
 
-      <b-button class="w-100" variant="primary" v-b-modal.modal-1>
+      <b-button
+        class="w-100"
+        variant="primary"
+        @click="cargaModal"
+        v-b-modal.modal-1
+      >
         <b-iconstack font-scale="1">
-          <b-icon stacked icon="cart-check" variant=""></b-icon> </b-iconstack
+          <b-icon stacked icon="cart-check" variant=""></b-icon></b-iconstack
       ></b-button>
     </div>
   </b-card>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   components: {},
   props: {
@@ -80,6 +87,17 @@ export default {
     },
     plus() {
       this.cantidadProductos++;
+    },
+    // en el method cargaModalestoy usando el mapAction para pasar parametros
+    ...mapActions({
+      cargaDataModal: "cargaDataModalAction",
+    }),
+    cargaModal() {
+      // Para pasar parametros desde un ...mapAction se hace de esta manera
+      this.cargaDataModal({
+        dataProducto: this.dataProducto,
+        cantidadProductos: this.cantidadProductos,
+      });
     },
   },
 };
