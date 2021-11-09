@@ -20,7 +20,10 @@
       >
         <router-link
           class="links"
-          :to="{ name: 'Content', params: { id: categoria.id } }"
+          :to="{
+            name: 'Content',
+            params: { id: categoria.id, name: categoria.name },
+          }"
         >
           <p>{{ categoria.name }}</p>
         </router-link>

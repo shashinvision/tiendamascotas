@@ -2,8 +2,13 @@
   <div style="position: relative">
     <div class="row mt-5 pt-5">
       <div class="col-12">
-        <h2>Categoría 1</h2>
-        {{ this.$route.params.id }}
+        <h2>
+          {{
+            this.$route.params.name
+              ? this.$route.params.name
+              : "Todos los productos"
+          }}
+        </h2>
       </div>
     </div>
     <div class="row mt-5">

@@ -76,7 +76,4 @@ ul {
   list-style-type: none;
   margin-left: -30px;
 }
-.card-img-top {
-  max-width: 12rem;
-}
 </style>
