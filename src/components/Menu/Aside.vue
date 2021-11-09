@@ -13,9 +13,9 @@
       <li>
         <h3>Categorías</h3>
       </li>
-      <li>Nueva</li>
-      <li>About</li>
-      <li>Contact</li>
+      <li>Categoría 1</li>
+      <li>Categoría 2</li>
+      <li>Categoría 3</li>
     </ul>
   </div>
 </template>

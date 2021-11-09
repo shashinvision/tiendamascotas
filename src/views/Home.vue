@@ -25,7 +25,7 @@
 <script>
 import Aside from "../components/Menu/Aside.vue";
 import Header from "../components/Menu/Header.vue";
-import Content from "../components/Menu/Content.vue";
+import Content from "../components/Content.vue";
 export default {
   name: "Home",
   components: {
