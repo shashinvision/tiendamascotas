@@ -1,8 +1,8 @@
 <template>
   <div>
     <b-card
-      title="Card Title"
-      img-src="https://picsum.photos/600/300/?image=25"
+      title=""
+      :img-src="dataProducto.photo"
       img-alt="Image"
       img-top
       tag="article"
@@ -11,9 +11,13 @@
     >
       <b-card-text>
         <ul>
-          <li><b>Stock:</b> Disponible</li>
-          <li><b>Nombre Producto:</b> Lorem, ipsum dolor.</li>
-          <li><b>Precio Producto:</b> $10.000.</li>
+          <li>
+            <b>Stock:</b>
+            {{ dataProducto.stock ? "Disponible" : "No Disponble" }}
+          </li>
+          <li><b>Cantidad Stock:</b> {{ dataProducto.stock }}.</li>
+          <li><b>Nombre:</b> {{ dataProducto.name }}.</li>
+          <li><b>Precio Producto:</b></li>
         </ul>
       </b-card-text>
 
@@ -56,6 +60,14 @@
 <script>
 export default {
   components: {},
+  props: {
+    dataProducto: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+  },
 };
 </script>
 
@@ -63,5 +75,8 @@ export default {
 ul {
   list-style-type: none;
   margin-left: -30px;
+}
+.card-img-top {
+  max-width: 12rem;
 }
 </style>

@@ -7,17 +7,8 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col">
-        <Card></Card>
-      </div>
-      <div class="col">
-        <Card></Card>
-      </div>
-      <div class="col">
-        <Card></Card>
-      </div>
-      <div class="col">
-        <Card></Card>
+      <div class="col-4" v-for="producto in getAllProductos" :key="producto.id">
+        <Card :dataProducto="producto"></Card>
       </div>
     </div>
     <Modal></Modal>
@@ -29,6 +20,7 @@
 import Card from "@/components/Card.vue";
 import Modal from "@/components/Modal.vue";
 import Carrito from "@/components/Carrito.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -36,7 +28,20 @@ export default {
     Modal,
     Carrito,
   },
+  computed: {
+    ...mapGetters({
+      getAllProductos: "productosGet",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      allproductosAction: "getProductosAPIAction",
+    }),
+  },
+  mounted() {
+    this.allproductosAction();
+  },
 };
 </script>
 
-<style lang="" scoped></style>
+<style lang="css" scoped></style>

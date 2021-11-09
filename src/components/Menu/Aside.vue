@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      dataCategoria: "mostrarCarritoGet",
+      dataCategoria: "categoriaGet",
     }),
   },
   methods: {
