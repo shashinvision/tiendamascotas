@@ -22,7 +22,7 @@
           class="links"
           :to="{ name: 'Content', params: { id: categoria.id } }"
         >
-          {{ categoria.name }}
+          <p>{{ categoria.name }}</p>
         </router-link>
       </li>
     </ul>
