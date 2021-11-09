@@ -3,17 +3,20 @@
     <div class="row mt-5 pt-5">
       <div class="col-12">
         <h2>
-          {{
-            this.$route.params.name
-              ? this.$route.params.name
-              : "Todos los productos"
-          }}
+          {{ $route.params.name ? $route.params.name : "Todos los productos" }}
         </h2>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-4" v-for="producto in getAllProductos" :key="producto.id">
-        <Card :dataProducto="producto"></Card>
+        <Card
+          :dataProducto="producto"
+          v-if="$route.params.name == undefined"
+        ></Card>
+        <Card
+          :dataProducto="producto"
+          v-else-if="$route.params.id == producto.category.id"
+        ></Card>
       </div>
     </div>
     <Modal></Modal>
