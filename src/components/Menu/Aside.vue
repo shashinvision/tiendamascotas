@@ -1,21 +1,20 @@
 <template>
-  <div class="">
-    <div id="sidebar" :class="{ active: IsActive }">
-      <div class="hamburger toggle-btn" @click="tootle">
-        <div class="_layer -top"></div>
-        <div class="_layer -mid"></div>
-        <div class="_layer -bottom"></div>
-      </div>
-
-      <ul>
-        <li>
-          <img src="../../assets/logo.jpeg" alt="Logo Fazt" class="logo" />
-        </li>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+  <div id="sidebar" :class="{ active: IsActive }">
+    <div class="hamburger toggle-btn mt-4" @click="tootle">
+      <div class="_layer -top"></div>
+      <div class="_layer -mid"></div>
+      <div class="_layer -bottom"></div>
     </div>
+
+    <ul>
+      <li>
+        <img src="../../assets/logo.jpeg" alt="Logo Fazt" class="logo" />
+      </li>
+      <li><h3>Categorías</h3></li>
+      <li>Nueva</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
   </div>
 </template>
 
@@ -47,6 +46,7 @@ export default {
   background: #151719;
   left: -200px;
   transition: all 500ms linear;
+  z-index: 2000;
 }
 
 #sidebar.active {
@@ -58,7 +58,8 @@ export default {
   list-style: none;
   padding: 15px 10px;
   border-bottom: 1px solid rgba(100, 100, 100, 0.3);
-  text-align: center;
+  /* text-align: center; */
+  margin-left: 10px;
 }
 
 .logo {
