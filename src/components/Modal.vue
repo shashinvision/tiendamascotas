@@ -3,7 +3,7 @@
     <b-modal id="modal-1" title="Producto agregado" hide-footer>
       <div>
         <b-card
-          title="Card Title"
+          title=""
           img-src="https://picsum.photos/600/300/?image=25"
           img-alt="Image"
           img-top
@@ -13,39 +13,52 @@
         >
           <b-card-text>
             <ul>
-              <li><b>Stock:</b> Disponible</li>
               <li><b>Nombre Producto:</b> Lorem, ipsum dolor.</li>
+              <li><b>Código Producto:</b> 23432</li>
               <li><b>Precio Producto:</b> $10.000.</li>
+              <li>
+                <div>
+                  <div class="d-flex mb-2">
+                    <b class="margenCantidad">Cantidad:</b>
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      class="minus"
+                    >
+                      <b-iconstack font-scale="1">
+                        <b-icon stacked icon="cart-dash" variant=""></b-icon>
+                      </b-iconstack>
+                    </button>
+                    <input
+                      class="quantity w-25"
+                      min="0"
+                      name="quantity"
+                      value="1"
+                      type="number"
+                    />
+                    <button
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      class="plus"
+                    >
+                      <b-iconstack font-scale="1">
+                        <b-icon stacked icon="cart-plus" variant=""></b-icon>
+                      </b-iconstack>
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b>SubTotal: </b>
+                <span>$734687.</span>
+              </li>
+              <li class="mt-2">
+                <b>Descripción del producto:</b>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Optio, illo?
+                </p>
+              </li>
             </ul>
           </b-card-text>
-
-          <div>
-            <div class="d-flex justify-content-center mb-2">
-              <button
-                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                class="minus"
-              >
-                <b-iconstack font-scale="1">
-                  <b-icon stacked icon="cart-dash" variant=""></b-icon>
-                </b-iconstack>
-              </button>
-              <input
-                class="quantity w-25"
-                min="0"
-                name="quantity"
-                value="1"
-                type="number"
-              />
-              <button
-                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                class="plus"
-              >
-                <b-iconstack font-scale="1">
-                  <b-icon stacked icon="cart-plus" variant=""></b-icon>
-                </b-iconstack>
-              </button>
-            </div>
-          </div>
         </b-card>
         <div class="d-flex justify-content-between w-75 centrarCard">
           <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
@@ -72,5 +85,8 @@ export default {};
 .centrarCard {
   margin-left: auto;
   margin-right: auto;
+}
+.margenCantidad {
+  margin-right: 10px;
 }
 </style>
