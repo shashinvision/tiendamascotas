@@ -12,7 +12,7 @@
           <div class="col">
             <Header></Header>
           </div>
-          <div class="col">
+          <div class="col-12">
             <Content></Content>
           </div>
         </div>
@@ -23,15 +23,12 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
 import Aside from "../components/Menu/Aside.vue";
 import Header from "../components/Menu/Header.vue";
 import Content from "../components/Menu/Content.vue";
 export default {
   name: "Home",
   components: {
-    // HelloWorld,
     Aside,
     Header,
     Content,

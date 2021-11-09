@@ -8,9 +8,11 @@
 
     <ul>
       <li>
-        <img src="../../assets/logo.jpeg" alt="Logo Fazt" class="logo" />
+        <img src="@/assets/logo.jpeg" alt="Logo Fazt" class="logo" />
       </li>
-      <li><h3>Categorías</h3></li>
+      <li>
+        <h3>Categorías</h3>
+      </li>
       <li>Nueva</li>
       <li>About</li>
       <li>Contact</li>
@@ -71,7 +73,7 @@ export default {
 
 #sidebar .toggle-btn {
   position: absolute;
-  left: 230px;
+  left: 190px;
   top: 20px;
   cursor: pointer;
 }
