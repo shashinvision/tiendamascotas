@@ -1,6 +1,6 @@
 <template>
   <div id="sidebar" :class="{ active: IsActive }">
-    <div class="hamburger toggle-btn mt-4" @click="tootle">
+    <div class="hamburger toggle-btn" @click="tootle">
       <div class="_layer -top"></div>
       <div class="_layer -mid"></div>
       <div class="_layer -bottom"></div>
@@ -56,7 +56,7 @@ export default {
 }
 
 #sidebar ul li {
-  color: rgba(230, 230, 230, 0.9);
+  color: white;
   list-style: none;
   padding: 15px 10px;
   border-bottom: 1px solid rgba(100, 100, 100, 0.3);
@@ -74,7 +74,7 @@ export default {
 #sidebar .toggle-btn {
   position: absolute;
   left: 190px;
-  top: 20px;
+  top: -1px;
   cursor: pointer;
 }
 
@@ -90,7 +90,7 @@ export default {
   position: fixed;
   background-color: transparent;
   left: 0;
-  top: 0;
+  top: -10;
   height: 30px;
   width: 30px;
   padding: 20px 20px;
@@ -110,7 +110,7 @@ export default {
   background-color: none;
 }
 ._layer {
-  background: #333333;
+  background: #dbdbdb;
   margin-bottom: 4px;
   border-radius: 2px;
   width: 28px;
