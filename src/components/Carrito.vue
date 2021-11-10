@@ -8,56 +8,14 @@
       v-for="producto in totalProductos"
       :key="producto.index"
     >
-      <hr />
-      <div class="row">
-        <div class="col-12">
-          <b>Nombre Producto:</b><span>producto xx</span>
-        </div>
-      </div>
-      <div class="row flex-row">
-        <div class="col-3">
-          <b>Precio:</b>
-          <span> $2900. </span>
-        </div>
-        <div class="col-4">
-          <div class="d-flex mb-2">
-            <button
-              onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-              class="minus"
-            >
-              <b-iconstack font-scale="1">
-                <b-icon stacked icon="cart-dash" variant=""></b-icon>
-              </b-iconstack>
-            </button>
-            <input
-              class="quantity w-25"
-              min="0"
-              name="quantity"
-              value="1"
-              type="number"
-            />
-            <button
-              onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-              class="plus"
-            >
-              <b-iconstack font-scale="1">
-                <b-icon stacked icon="cart-plus" variant=""></b-icon>
-              </b-iconstack>
-            </button>
-          </div>
-        </div>
-        <div class="col-3">
-          <b>Subtotal:</b>
-          <span> $2900. </span>
-        </div>
-      </div>
+      <ProductosCarrito :producto="producto"></ProductosCarrito>
     </div>
 
     <hr />
     <div class="row d-flex justify-content-center">
       <div class="col-12m w-50 d-flex justify-content-between">
         <p>Sub-Total</p>
-        <b>$89.000.</b>
+        <b>$la datata todoal</b>
       </div>
     </div>
   </div>
@@ -65,28 +23,30 @@
 
 <script>
 import { mapGetters } from "vuex";
+import ProductosCarrito from "./ProductosCarrito.vue";
 export default {
-  components: {},
+  components: {
+    ProductosCarrito,
+  },
   computed: {
     ...mapGetters("Carrito", {
       visible: "carritoStadoGet",
       totalProductos: "totalProductosGet",
     }),
   },
-  data() {
-    return {};
-  },
+
+  methods: {},
 };
 </script>
 
 <style lang="css" scoped>
 .carrito {
   position: absolute;
-  left: 50%;
+  left: 40%;
   top: -3%;
   z-index: 1;
   border: 1px solid black;
-  width: 50%;
+  width: 60%;
   height: auto;
   background-color: white;
 }
