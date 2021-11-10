@@ -1,8 +1,4 @@
-# tienda_mascotas
-
-```
-Prueba para Kibernum/Talana.
-```
+# tienda_mascotas Prueba para Kibernum/Talana.
 
 ## Project setup, clonamos el proyecto
 
