@@ -19,7 +19,7 @@
               @click.prevent="verCarrito"
             >
               <b-iconstack font-scale="1">
-                <b-icon stacked icon="cart-plus" variant="success"></b-icon>
+                <b-icon stacked icon="cart-plus" variant="info"></b-icon>
               </b-iconstack>
               +{{ totalValorYCantidad.totalCantidad }}
             </button>
