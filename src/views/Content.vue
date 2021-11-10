@@ -17,8 +17,12 @@
         <Card
           :dataProducto="producto"
           v-else-if="
-            producto.category.name.includes($route.params.name) ||
-            producto.name.includes($route.params.name)
+            producto.category.name
+              .toLowerCase()
+              .includes($route.params.name.toLowerCase()) ||
+            producto.name
+              .toLowerCase()
+              .includes($route.params.name.toLowerCase())
           "
         ></Card>
         <Card
