@@ -123,7 +123,7 @@ export default {
 .carrito {
   position: absolute;
   left: 50%;
-  top: -8%;
+  top: -3%;
   z-index: 1;
   border: 1px solid black;
   width: 50%;
