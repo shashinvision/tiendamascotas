@@ -45,12 +45,12 @@ export default {
 
 <style lang="css" scoped>
 .carrito {
-  position: absolute;
-  left: 40%;
-  top: -3%;
+  position: fixed;
+  left: 60%;
+  top: 1%;
   z-index: 1;
   border: 1px solid black;
-  width: 60%;
+  width: 40%;
   height: auto;
   background-color: white;
 }
