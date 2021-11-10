@@ -16,10 +16,17 @@ const Carrito = {
     mostrarCarritoMutation(state) {
       state.carritoState = !state.carritoState;
     },
+    addDataCarritoMutation(state, payload) {
+      alert("En la mutacion");
+      console.log("Payload de carrito ", payload);
+    },
   },
   actions: {
     mostrarCarritoAction({ commit }) {
       commit("mostrarCarritoMutation");
+    },
+    addDataCarritoAction({ commit }, payload) {
+      commit("addDataCarritoMutation", payload);
     },
   },
 };

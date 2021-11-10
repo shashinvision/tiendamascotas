@@ -45,7 +45,7 @@
               </li>
               <li>
                 <b>SubTotal: </b>
-                <span>{{ subTotal }}</span>
+                <span>${{ subTotalData > 0 ? subTotalData : subTotal }}</span>
               </li>
               <li class="mt-2">
                 <b>Descripción del producto:</b>
@@ -60,11 +60,7 @@
           <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
             >Seguir comprando</b-button
           >
-          <b-button
-            class="mt-3"
-            block
-            @click="$bvModal.hide('modal-1')"
-            variant="success"
+          <b-button class="mt-3" block @click="setDataCarrito" variant="success"
             >Agregar a carro</b-button
           >
         </div>
@@ -74,11 +70,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      subTotalData: 0,
+    };
   },
   computed: {
     ...mapGetters("Modal", {
@@ -103,8 +101,18 @@ export default {
       this.subTotalResult();
     },
     subTotalResult() {
-      this.subTotal =
+      this.subTotalData =
         this.dataModal.cantidadProductos * this.dataModal.dataProducto.price;
+    },
+    ...mapActions("Carrito", {
+      addDataCarritoAction: "addDataCarritoAction",
+    }),
+    setDataCarrito() {
+      this.addDataCarritoAction({
+        dataModal: this.dataModal,
+        subTotal: this.subTotal,
+      });
+      this.$bvModal.hide("modal-1");
     },
   },
 };
