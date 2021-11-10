@@ -8,8 +8,8 @@ const Carrito = {
     carritoStadoGet(state) {
       return state.carritoState;
     },
-    totalProductos(state) {
-      return state;
+    totalProductosGet(state) {
+      return state.arrayProductos;
     },
   },
   mutations: {
@@ -17,8 +17,8 @@ const Carrito = {
       state.carritoState = !state.carritoState;
     },
     addDataCarritoMutation(state, payload) {
-      alert("En la mutacion");
-      console.log("Payload de carrito ", payload);
+      // console.log("Payload de carrito ", payload);
+      state.arrayProductos.push(payload);
     },
   },
   actions: {

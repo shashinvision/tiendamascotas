@@ -3,7 +3,11 @@
     <h3>Resumen de Compra</h3>
 
     <!-- Producto 1  -->
-    <div class="row mb-2">
+    <div
+      class="row mb-2"
+      v-for="producto in totalProductos"
+      :key="producto.index"
+    >
       <hr />
       <div class="row">
         <div class="col-12">
@@ -48,52 +52,7 @@
         </div>
       </div>
     </div>
-    <!-- Producto 2  -->
-    <div class="row">
-      <hr />
-      <div class="row mb-1">
-        <div class="col-12">
-          <b>Nombre Producto:</b><span>producto xx</span>
-        </div>
-      </div>
-      <div class="row flex-row">
-        <div class="col-3">
-          <b>Precio:</b>
-          <span> $2900. </span>
-        </div>
-        <div class="col-4">
-          <div class="d-flex mb-2">
-            <button
-              onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-              class="minus"
-            >
-              <b-iconstack font-scale="1">
-                <b-icon stacked icon="cart-dash" variant=""></b-icon>
-              </b-iconstack>
-            </button>
-            <input
-              class="quantity w-25"
-              min="0"
-              name="quantity"
-              value="1"
-              type="number"
-            />
-            <button
-              onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-              class="plus"
-            >
-              <b-iconstack font-scale="1">
-                <b-icon stacked icon="cart-plus" variant=""></b-icon>
-              </b-iconstack>
-            </button>
-          </div>
-        </div>
-        <div class="col-3">
-          <b>Subtotal:</b>
-          <span> $2900. </span>
-        </div>
-      </div>
-    </div>
+
     <hr />
     <div class="row d-flex justify-content-center">
       <div class="col-12m w-50 d-flex justify-content-between">
@@ -111,6 +70,7 @@ export default {
   computed: {
     ...mapGetters("Carrito", {
       visible: "carritoStadoGet",
+      totalProductos: "totalProductosGet",
     }),
   },
   data() {
