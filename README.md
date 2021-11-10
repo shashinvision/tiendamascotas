@@ -1,31 +1,33 @@
 # tienda_mascotas
 
-Prueba tecnica para Kibernum/Talana.
+```
+Prueba para Kibernum/Talana.
+```
 
-## Project setup
+## Project setup, clonamos el proyecto
+
+```
+git clone https://gitlab.com/felipei.mancilla/tienda_mascotas.git
+```
+
+## Vamos a la carpeta del proyecto
+
+```
+cd tienda_mascotas
+
+```
+
+## Ejecutamos
 
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
 
 ```
+
+### Ejecutar
+
+```
+
 npm run serve
-```
-
-### Compiles and minifies for production
 
 ```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
