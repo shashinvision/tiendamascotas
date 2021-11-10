@@ -10,9 +10,12 @@
             <input
               class="form-control me-2"
               type="search"
-              placeholder="nombre producto..."
+              placeholder="Busca por nombre de producto o caregoría"
               aria-label="Search"
+              v-model="dataBusqueda"
+              @keyup="busqueda"
             />
+
             <button
               class="btn btn-outline-success w-50"
               type="submit"
@@ -33,6 +36,11 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
+  data() {
+    return {
+      dataBusqueda: "",
+    };
+  },
   computed: {
     ...mapGetters("Carrito", {
       totalValorYCantidad: "totalValorYCantidadProductos",
@@ -42,6 +50,13 @@ export default {
     ...mapActions("Carrito", {
       verCarrito: "mostrarCarritoAction",
     }),
+    busqueda() {
+      // console.log(this.dataBusqueda);
+      this.$router.push({
+        name: "Busqueda",
+        params: { name: this.dataBusqueda },
+      });
+    },
   },
 };
 </script>

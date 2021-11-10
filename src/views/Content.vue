@@ -4,6 +4,7 @@
       <div class="col-12">
         <h2>
           {{ $route.params.name ? $route.params.name : "Todos los productos" }}
+          <br />
         </h2>
       </div>
     </div>
@@ -12,6 +13,13 @@
         <Card
           :dataProducto="producto"
           v-if="$route.params.name == undefined"
+        ></Card>
+        <Card
+          :dataProducto="producto"
+          v-else-if="
+            producto.category.name.includes($route.params.name) ||
+            producto.name.includes($route.params.name)
+          "
         ></Card>
         <Card
           :dataProducto="producto"
