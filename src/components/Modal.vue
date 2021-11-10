@@ -108,9 +108,12 @@ export default {
       addDataCarritoAction: "addDataCarritoAction",
     }),
     setDataCarrito() {
+      this.subTotalComplete =
+        this.subTotalData > 0 ? this.subTotalData : this.subTotal;
+
       this.addDataCarritoAction({
         dataModal: this.dataModal,
-        subTotal: this.subTotal,
+        subTotal: this.subTotalComplete,
       });
       this.$bvModal.hide("modal-1");
     },

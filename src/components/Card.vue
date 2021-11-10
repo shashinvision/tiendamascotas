@@ -52,6 +52,7 @@
         variant="primary"
         @click="cargaModal"
         v-b-modal.modal-1
+        :disabled="cantidadProductos <= 0"
       >
         <b-iconstack font-scale="1">
           <b-icon stacked icon="cart-check" variant=""></b-icon></b-iconstack
