@@ -6,11 +6,11 @@
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li></li>
           </ul>
-          <form class="d-flex">
+          <div class="d-flex">
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="nombre producto..."
               aria-label="Search"
             />
             <button
@@ -23,7 +23,7 @@
               </b-iconstack>
               +{{ totalValorYCantidad.totalCantidad }}
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </nav>
