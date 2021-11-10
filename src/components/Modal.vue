@@ -45,7 +45,7 @@
               </li>
               <li>
                 <b>SubTotal: </b>
-                <span>{{ resultadoSubTotal }}</span>
+                <span>{{ subTotal }}</span>
               </li>
               <li class="mt-2">
                 <b>Descripción del producto:</b>
@@ -78,14 +78,17 @@ import { mapGetters } from "vuex";
 
 export default {
   data() {
-    return {
-      subTotal: 0,
-    };
+    return {};
   },
   computed: {
     ...mapGetters("Modal", {
       dataModal: "dataModalGet",
     }),
+    subTotal() {
+      return (
+        this.dataModal.cantidadProductos * this.dataModal.dataProducto.price
+      );
+    },
   },
   methods: {
     minus() {
@@ -93,9 +96,15 @@ export default {
       if (this.dataModal.cantidadProductos < 0) {
         this.dataModal.cantidadProductos = 0;
       }
+      this.subTotalResult();
     },
     plus() {
       this.dataModal.cantidadProductos++;
+      this.subTotalResult();
+    },
+    subTotalResult() {
+      this.subTotal =
+        this.dataModal.cantidadProductos * this.dataModal.dataProducto.price;
     },
   },
 };
