@@ -15,7 +15,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-12m w-50 d-flex justify-content-between">
         <p>Sub-Total</p>
-        <b>$la datata todoal</b>
+        <b>${{ totalValorYCantidad.totalValor }}</b>
       </div>
     </div>
   </div>
@@ -25,6 +25,11 @@
 import { mapGetters } from "vuex";
 import ProductosCarrito from "./ProductosCarrito.vue";
 export default {
+  data() {
+    return {
+      cantidadTotalProductos: 0,
+    };
+  },
   components: {
     ProductosCarrito,
   },
@@ -32,10 +37,9 @@ export default {
     ...mapGetters("Carrito", {
       visible: "carritoStadoGet",
       totalProductos: "totalProductosGet",
+      totalValorYCantidad: "totalValorYCantidadProductos",
     }),
   },
-
-  methods: {},
 };
 </script>
 

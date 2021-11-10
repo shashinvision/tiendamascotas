@@ -21,7 +21,7 @@
               <b-iconstack font-scale="1">
                 <b-icon stacked icon="cart-plus" variant="success"></b-icon>
               </b-iconstack>
-              +5
+              +{{ totalValorYCantidad.totalCantidad }}
             </button>
           </form>
         </div>
@@ -31,8 +31,13 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
+  computed: {
+    ...mapGetters("Carrito", {
+      totalValorYCantidad: "totalValorYCantidadProductos",
+    }),
+  },
   methods: {
     ...mapActions("Carrito", {
       verCarrito: "mostrarCarritoAction",

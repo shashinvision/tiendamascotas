@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   props: {
     producto: {
@@ -69,16 +71,35 @@ export default {
         this.producto.dataModal.cantidadProductos = 0;
       }
       this.subTotalResult();
+      this.editCantidadSubtital();
     },
     plus() {
       this.producto.dataModal.cantidadProductos++;
       this.subTotalResult();
+      this.editCantidadSubtital();
     },
     subTotalResult() {
       this.subTotalData =
         this.producto.dataModal.cantidadProductos *
         this.producto.dataModal.dataProducto.price;
     },
+    ...mapActions("Carrito", {
+      cambiarCantidadSubtotal: "cambiarCantidadYSubTotalAction",
+    }),
+    editCantidadSubtital() {
+      let subtotal = this.subTotalData > 0 ? this.subTotalData : this.subTotal;
+      //   console.log("Data", this.producto.dataModal.dataProducto.id);
+      //   console.log("producto", this.producto.dataModal.cantidadProductos);
+      //   console.log("subtotal", subtotal);
+      this.cambiarCantidadSubtotal({
+        id: this.producto.dataModal.dataProducto.id,
+        cantidad: this.producto.dataModal.cantidadProductos,
+        Subtotal: subtotal,
+      });
+    },
+  },
+  mounted() {
+    // console.log("Producto", this.producto);
   },
 };
 </script>
