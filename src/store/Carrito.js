@@ -2,10 +2,14 @@ const Carrito = {
   namespaced: true,
   state: {
     carritoState: false,
+    arrayProductos: [],
   },
   getters: {
     carritoStadoGet(state) {
       return state.carritoState;
+    },
+    totalProductos(state) {
+      return state;
     },
   },
   mutations: {

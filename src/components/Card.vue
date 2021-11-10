@@ -16,7 +16,7 @@
         </li>
         <li><b>Cantidad Stock:</b> {{ dataProducto.stock }}.</li>
         <li><b>Nombre:</b> {{ dataProducto.name }}.</li>
-        <li><b>Precio Producto:</b></li>
+        <li><b>Precio Producto:</b> ${{ dataProducto.price }}</li>
       </ul>
     </b-card-text>
 

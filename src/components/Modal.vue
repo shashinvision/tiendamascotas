@@ -23,10 +23,7 @@
                 <div>
                   <div class="d-flex mb-2">
                     <b class="margenCantidad">Cantidad:</b>
-                    <button
-                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                      class="minus"
-                    >
+                    <button @click="minus">
                       <b-iconstack font-scale="1">
                         <b-icon stacked icon="cart-dash" variant=""></b-icon>
                       </b-iconstack>
@@ -38,10 +35,7 @@
                       v-model="dataModal.cantidadProductos"
                       type="number"
                     />
-                    <button
-                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                      class="plus"
-                    >
+                    <button @click="plus">
                       <b-iconstack font-scale="1">
                         <b-icon stacked icon="cart-plus" variant=""></b-icon>
                       </b-iconstack>
@@ -51,13 +45,12 @@
               </li>
               <li>
                 <b>SubTotal: </b>
-                <span>$734687.</span>
+                <span>{{ resultadoSubTotal }}</span>
               </li>
               <li class="mt-2">
                 <b>Descripción del producto:</b>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Optio, illo?
+                  {{ dataModal.dataProducto.abstract }}
                 </p>
               </li>
             </ul>
@@ -85,12 +78,25 @@ import { mapGetters } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      subTotal: 0,
+    };
   },
   computed: {
     ...mapGetters("Modal", {
       dataModal: "dataModalGet",
     }),
+  },
+  methods: {
+    minus() {
+      this.dataModal.cantidadProductos--;
+      if (this.dataModal.cantidadProductos < 0) {
+        this.dataModal.cantidadProductos = 0;
+      }
+    },
+    plus() {
+      this.dataModal.cantidadProductos++;
+    },
   },
 };
 </script>
