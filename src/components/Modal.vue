@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex">
-    <b-modal id="modal-1" title="Producto agregado" hide-footer>
+    <b-modal id="modal-1" title="Producto agregado" hide-footer size="lg">
       <div>
         <b-card
           title=""
@@ -8,8 +8,9 @@
           img-alt="Image"
           img-top
           tag="article"
-          style="max-width: 20rem"
+          style="max-width: 80%"
           class="mb-2 centrarCard"
+          img-left
         >
           <b-card-text>
             <ul>
@@ -98,6 +99,10 @@ export default {
 .centrarCard {
   margin-left: auto;
   margin-right: auto;
+}
+.card-img-top {
+  max-width: 25rem;
+  max-height: 25rem;
 }
 .margenCantidad {
   margin-right: 10px;
