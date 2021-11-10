@@ -87,7 +87,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("Modal", {
       dataModal: "dataModalGet",
     }),
   },

@@ -37,12 +37,12 @@ export default {
     Carrito,
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("ProductosCategorias", {
       getAllProductos: "productosGet",
     }),
   },
   methods: {
-    ...mapActions({
+    ...mapActions("ProductosCategorias", {
       allproductosAction: "getProductosAPIAction",
     }),
   },

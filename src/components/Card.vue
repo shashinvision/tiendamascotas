@@ -89,7 +89,7 @@ export default {
       this.cantidadProductos++;
     },
     // en el method cargaModalestoy usando el mapAction para pasar parametros
-    ...mapActions({
+    ...mapActions("Modal", {
       cargaDataModal: "cargaDataModalAction",
     }),
     cargaModal() {

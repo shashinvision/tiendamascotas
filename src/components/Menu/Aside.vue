@@ -45,7 +45,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
+    ...mapGetters("ProductosCategorias", {
       dataCategoria: "categoriaGet",
     }),
   },
@@ -53,7 +53,7 @@ export default {
     tootle() {
       this.IsActive = !this.IsActive;
     },
-    ...mapActions({
+    ...mapActions("ProductosCategorias", {
       getCategorias: "getCategoriasAPIAction",
     }),
   },
