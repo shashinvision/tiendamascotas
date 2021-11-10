@@ -60,7 +60,12 @@
           <b-button class="mt-3" block @click="$bvModal.hide('modal-1')"
             >Seguir comprando</b-button
           >
-          <b-button class="mt-3" block @click="setDataCarrito" variant="success"
+          <b-button
+            class="mt-3"
+            block
+            @click="setDataCarrito"
+            variant="success"
+            :disabled="dataModal.cantidadProductos <= 0"
             >Agregar a carro</b-button
           >
         </div>
