@@ -13,9 +13,6 @@
         >
           <b-card-text>
             <ul>
-              {{
-                dataModal.dataProducto.name
-              }}
               <li><b>Nombre Producto:</b> {{ dataModal.dataProducto.name }}</li>
               <li><b>Código Producto:</b> {{ dataModal.dataProducto.code }}</li>
               <li>
