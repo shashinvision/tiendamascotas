@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="col-4" v-for="producto in getAllProductos" :key="producto.id">
+      <div class="col-4" v-for="producto in productosData" :key="producto.id">
         <Card
           :dataProducto="producto"
           v-if="$route.params.name == undefined"
@@ -52,6 +52,28 @@ export default {
     ...mapGetters("ProductosCategorias", {
       getAllProductos: "productosGet",
     }),
+    productosData() {
+      let data = [];
+      for (let i = 0; i < this.getAllProductos.length; i++) {
+        if (this.$route.params.name == undefined) {
+          data.push(this.getAllProductos[i]);
+        } else if (
+          this.getAllProductos[i].category.name
+            .toLowerCase()
+            .includes(this.$route.params.name.toLowerCase()) ||
+          this.getAllProductos[i].name
+            .toLowerCase()
+            .includes(this.$route.params.name.toLowerCase())
+        ) {
+          data.push(this.getAllProductos[i]);
+        } else if (
+          this.$route.params.id == this.getAllProductos[i].category.id
+        ) {
+          data.push(this.getAllProductos[i]);
+        }
+      }
+      return data;
+    },
   },
   methods: {
     ...mapActions("ProductosCategorias", {
