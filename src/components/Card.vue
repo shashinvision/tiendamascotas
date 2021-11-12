@@ -14,7 +14,10 @@
           <b>Stock:</b>
           {{ dataProducto.stock ? "Disponible" : "No Disponble" }}
         </li>
-        <li><b>Cantidad Stock:</b> {{ dataProducto.stock }}.</li>
+        <li>
+          <b>Cantidad Stock:</b>
+          {{ dataProducto.stock - this.cantidadEnCarrito }}.
+        </li>
         <li><b>Nombre:</b> {{ dataProducto.name }}.</li>
         <li><b>Precio Producto:</b> ${{ dataProducto.price }}</li>
       </ul>
@@ -43,7 +46,9 @@
         > -->
         <button
           @click="plus"
-          :disabled="cantidadProductos >= dataProducto.stock"
+          :disabled="
+            cantidadProductos >= dataProducto.stock - this.cantidadEnCarrito
+          "
         >
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-plus" variant=""></b-icon>
@@ -56,7 +61,9 @@
         variant="primary"
         @click="cargaModal"
         v-b-modal.modal-1
-        :disabled="cantidadProductos <= 0"
+        :disabled="
+          cantidadProductos <= 0 || this.cantidadEnCarrito >= dataProducto.stock
+        "
       >
         <b-iconstack font-scale="1">
           <b-icon stacked icon="cart-check" variant=""></b-icon></b-iconstack
@@ -66,7 +73,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {},
@@ -78,9 +85,31 @@ export default {
       },
     },
   },
+  computed: {
+    ...mapState("Carrito", {
+      productosEnCarrito: "arrayProductos",
+    }),
+    cantidadEnCarrito() {
+      let data = 0;
+      if (this.productosEnCarrito.length > 0) {
+        for (let i = 0; i < this.productosEnCarrito.length; i++) {
+          if (
+            this.productosEnCarrito[i].dataModal.dataProducto.id ==
+            this.dataProducto.id
+          ) {
+            data = this.productosEnCarrito[i].dataModal.cantidadProductos;
+          }
+        }
+      }
+
+      return data;
+    },
+  },
   data() {
     return {
-      cantidadProductos: 0,
+      cantidadProductos: this.cantidadEnCarrito
+        ? this.dataProducto.stock - this.cantidadEnCarrito
+        : 0,
     };
   },
   methods: {
@@ -103,6 +132,9 @@ export default {
         dataProducto: this.dataProducto,
         cantidadProductos: this.cantidadProductos,
       });
+      setTimeout(() => {
+        this.cantidadProductos = 0;
+      }, 500);
     },
   },
 };

@@ -3,14 +3,14 @@
     <hr />
     <div class="row">
       <div class="col-12">
-        <b>Nombre Producto:</b
+        <b>Nombre Producto: </b
         ><span>{{ producto.dataModal.dataProducto.name }}</span>
       </div>
     </div>
     <div class="row flex-row">
       <div class="col-3">
-        <b>Precio:</b>
-        <span> ${{ producto.dataModal.dataProducto.price }} </span>
+        <b>Precio: </b>
+        <span>${{ producto.dataModal.dataProducto.price }} </span>
       </div>
       <div class="col-4">
         <div class="d-flex mb-2">

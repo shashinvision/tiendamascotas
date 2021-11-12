@@ -26,9 +26,7 @@ import { mapGetters } from "vuex";
 import ProductosCarrito from "./ProductosCarrito.vue";
 export default {
   data() {
-    return {
-      cantidadTotalProductos: 0,
-    };
+    return {};
   },
   components: {
     ProductosCarrito,

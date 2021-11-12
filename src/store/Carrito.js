@@ -39,7 +39,8 @@ const Carrito = {
         // alert("Lorem");
         state.arrayProductos.push(payload);
       } else {
-        let identificador = false;
+        // identificador para saber si existió en alguna ocasión una coincidencia, evita que se repita un producto
+        let identificadorCoincidencia = false;
         // se recorre el carrito para saber si tiene productos en comun, si es así se suman los datos a los existentes
         for (let i = 0; i < state.arrayProductos.length; i++) {
           // alert("IDs: " + state.arrayProductos[i].dataModal.dataProducto.id);
@@ -48,7 +49,7 @@ const Carrito = {
             state.arrayProductos[i].dataModal.dataProducto.id ==
             payload.dataModal.dataProducto.id
           ) {
-            identificador = true;
+            identificadorCoincidencia = true;
             state.arrayProductos[i].dataModal.cantidadProductos +=
               payload.dataModal.cantidadProductos;
 
@@ -56,7 +57,8 @@ const Carrito = {
           }
         }
 
-        if (!identificador) {
+        // Si no se identificó una coincidencia se añade otro producto al carrito
+        if (!identificadorCoincidencia) {
           state.arrayProductos.push(payload);
         }
       }
