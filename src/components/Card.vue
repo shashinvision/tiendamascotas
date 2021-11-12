@@ -25,7 +25,7 @@
         <!-- <button
           onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
         > -->
-        <button @click="minus">
+        <button @click="minus" :disabled="cantidadProductos <= 0">
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-dash" variant=""></b-icon>
           </b-iconstack>
@@ -36,11 +36,15 @@
           name="quantity"
           v-model="cantidadProductos"
           type="number"
+          readonly
         />
         <!-- <button
           onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
         > -->
-        <button @click="plus">
+        <button
+          @click="plus"
+          :disabled="cantidadProductos >= dataProducto.stock"
+        >
           <b-iconstack font-scale="1">
             <b-icon stacked icon="cart-plus" variant=""></b-icon>
           </b-iconstack>

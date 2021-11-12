@@ -23,7 +23,10 @@
                 <div>
                   <div class="d-flex mb-2">
                     <b class="margenCantidad">Cantidad:</b>
-                    <button @click="minus">
+                    <button
+                      @click="minus"
+                      :disabled="dataModal.cantidadProductos <= 0"
+                    >
                       <b-iconstack font-scale="1">
                         <b-icon stacked icon="cart-dash" variant=""></b-icon>
                       </b-iconstack>
@@ -34,8 +37,15 @@
                       name="quantity"
                       v-model="dataModal.cantidadProductos"
                       type="number"
+                      readonly
                     />
-                    <button @click="plus">
+                    <button
+                      @click="plus"
+                      :disabled="
+                        dataModal.cantidadProductos >=
+                        dataModal.dataProducto.stock
+                      "
+                    >
                       <b-iconstack font-scale="1">
                         <b-icon stacked icon="cart-plus" variant=""></b-icon>
                       </b-iconstack>

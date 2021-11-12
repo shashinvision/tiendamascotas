@@ -14,7 +14,10 @@
       </div>
       <div class="col-4">
         <div class="d-flex mb-2">
-          <button @click="minus">
+          <button
+            @click="minus"
+            :disabled="producto.dataModal.cantidadProductos <= 0"
+          >
             <b-iconstack font-scale="1">
               <b-icon stacked icon="cart-dash" variant=""></b-icon>
             </b-iconstack>
@@ -25,8 +28,15 @@
             name="quantity"
             v-model="producto.dataModal.cantidadProductos"
             type="number"
+            readonly
           />
-          <button @click="plus">
+          <button
+            @click="plus"
+            :disabled="
+              producto.dataModal.cantidadProductos >=
+              producto.dataModal.dataProducto.stock
+            "
+          >
             <b-iconstack font-scale="1">
               <b-icon stacked icon="cart-plus" variant=""></b-icon>
             </b-iconstack>
