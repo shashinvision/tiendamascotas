@@ -10,25 +10,7 @@
     </div>
     <div class="row mt-5">
       <div class="col-4" v-for="producto in productosData" :key="producto.id">
-        <Card
-          :dataProducto="producto"
-          v-if="$route.params.name == undefined"
-        ></Card>
-        <Card
-          :dataProducto="producto"
-          v-else-if="
-            producto.category.name
-              .toLowerCase()
-              .includes($route.params.name.toLowerCase()) ||
-            producto.name
-              .toLowerCase()
-              .includes($route.params.name.toLowerCase())
-          "
-        ></Card>
-        <Card
-          :dataProducto="producto"
-          v-else-if="$route.params.id == producto.category.id"
-        ></Card>
+        <Card :dataProducto="producto"></Card>
       </div>
     </div>
     <Modal></Modal>
