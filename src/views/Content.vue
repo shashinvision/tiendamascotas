@@ -38,8 +38,10 @@ export default {
       let data = [];
       for (let i = 0; i < this.getAllProductos.length; i++) {
         if (this.$route.params.name == undefined) {
+          // Muestra todos los productos
           data.push(this.getAllProductos[i]);
         } else if (
+          // Muestra plos productos según la busqueda
           this.getAllProductos[i].category.name
             .toLowerCase()
             .includes(this.$route.params.name.toLowerCase()) ||
@@ -49,6 +51,7 @@ export default {
         ) {
           data.push(this.getAllProductos[i]);
         } else if (
+          // Muestra los productos según la categoria
           this.$route.params.id == this.getAllProductos[i].category.id
         ) {
           data.push(this.getAllProductos[i]);
