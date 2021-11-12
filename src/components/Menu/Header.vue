@@ -56,6 +56,12 @@ export default {
         name: "Busqueda",
         params: { name: this.dataBusqueda },
       });
+
+      if (this.dataBusqueda == "") {
+        this.$router.push({
+          name: "Home",
+        });
+      }
     },
   },
 };

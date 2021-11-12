@@ -15,6 +15,13 @@
     </div>
     <Modal></Modal>
     <Carrito></Carrito>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="itemList"
+      align="center"
+    ></b-pagination>
   </div>
 </template>
 
@@ -25,6 +32,12 @@ import Carrito from "@/components/Carrito.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      currentPage: 1,
+      perPage: 3,
+    };
+  },
   components: {
     Card,
     Modal,
@@ -34,6 +47,16 @@ export default {
     ...mapGetters("ProductosCategorias", {
       getAllProductos: "productosGet",
     }),
+    rows() {
+      let data;
+      if (this.$route.params.name == undefined) {
+        data = this.getAllProductos.length;
+      } else if (this.$route.params.name || this.$route.params.id) {
+        data = this.productosData.length;
+      }
+      return data;
+    },
+
     productosData() {
       let data = [];
       for (let i = 0; i < this.getAllProductos.length; i++) {
@@ -57,6 +80,11 @@ export default {
           data.push(this.getAllProductos[i]);
         }
       }
+      // Paginación
+      data = data.slice(
+        (this.currentPage - 1) * this.perPage,
+        this.currentPage * this.perPage
+      );
       return data;
     },
   },
