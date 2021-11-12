@@ -47,7 +47,7 @@
         <button
           @click="plus"
           :disabled="
-            cantidadProductos >= dataProducto.stock - this.cantidadEnCarrito
+            cantidadProductos >= dataProducto.stock - cantidadEnCarrito
           "
         >
           <b-iconstack font-scale="1">

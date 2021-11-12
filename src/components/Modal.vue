@@ -43,7 +43,7 @@
                       @click="plus"
                       :disabled="
                         dataModal.cantidadProductos >=
-                        dataModal.dataProducto.stock
+                        dataModal.dataProducto.stock - cantidadEnCarrito
                       "
                     >
                       <b-iconstack font-scale="1">
@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 
 export default {
   data() {
@@ -94,6 +94,9 @@ export default {
     };
   },
   computed: {
+    ...mapState("Carrito", {
+      productosEnCarrito: "arrayProductos",
+    }),
     ...mapGetters("Modal", {
       dataModal: "dataModalGet",
     }),
@@ -101,6 +104,21 @@ export default {
       return (
         this.dataModal.cantidadProductos * this.dataModal.dataProducto.price
       );
+    },
+    cantidadEnCarrito() {
+      let data = 0;
+      if (this.productosEnCarrito.length > 0) {
+        for (let i = 0; i < this.productosEnCarrito.length; i++) {
+          if (
+            this.productosEnCarrito[i].dataModal.dataProducto.id ==
+            this.dataModal.dataProducto.id
+          ) {
+            data = this.productosEnCarrito[i].dataModal.cantidadProductos;
+          }
+        }
+      }
+
+      return data;
     },
   },
   methods: {
