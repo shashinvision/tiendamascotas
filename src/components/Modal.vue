@@ -126,8 +126,15 @@ export default {
       this.subTotalComplete =
         this.subTotalData > 0 ? this.subTotalData : this.subTotal;
 
+      // console.log(
+      //   "this.dataModal.cantidadProductos",
+      //   this.dataModal.cantidadProductos
+      // );
+      // console.log("this.dataModal", this.dataModal);
+
       this.addDataCarritoAction({
         dataModal: this.dataModal,
+        // cantidadProductos: this.dataModal.cantidadProductos,
         subTotal: this.subTotalComplete,
       });
       this.$bvModal.hide("modal-1");

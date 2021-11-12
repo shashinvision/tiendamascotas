@@ -32,7 +32,34 @@ const Carrito = {
     },
     addDataCarritoMutation(state, payload) {
       // console.log("Payload de carrito ", payload);
-      state.arrayProductos.push(payload);
+      // console.log("Estado previo al push", state);
+
+      // si no hay nada en el carrito se suma al carrito
+      if (state.arrayProductos.length == 0) {
+        // alert("Lorem");
+        state.arrayProductos.push(payload);
+      } else {
+        let identificador = false;
+        // se recorre el carrito para saber si tiene productos en comun, si es así se suman los datos a los existentes
+        for (let i = 0; i < state.arrayProductos.length; i++) {
+          // alert("IDs: " + state.arrayProductos[i].dataModal.dataProducto.id);
+
+          if (
+            state.arrayProductos[i].dataModal.dataProducto.id ==
+            payload.dataModal.dataProducto.id
+          ) {
+            identificador = true;
+            state.arrayProductos[i].dataModal.cantidadProductos +=
+              payload.dataModal.cantidadProductos;
+
+            state.arrayProductos[i].subTotal += payload.subTotal;
+          }
+        }
+
+        if (!identificador) {
+          state.arrayProductos.push(payload);
+        }
+      }
     },
     cambiarCantidadYSubTotalMutation(state, payload) {
       // console.log("state de carrito ", state);
