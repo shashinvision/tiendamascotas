@@ -14,7 +14,7 @@
     <hr />
     <div class="row d-flex justify-content-center">
       <div class="col-12m w-50 d-flex justify-content-between">
-        <p>Sub-Total</p>
+        <p>Total</p>
         <b>${{ totalValorYCantidad.totalValor }}</b>
       </div>
     </div>

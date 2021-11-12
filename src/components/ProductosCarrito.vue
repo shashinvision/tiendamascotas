@@ -104,7 +104,7 @@ export default {
       this.cambiarCantidadSubtotal({
         id: this.producto.dataModal.dataProducto.id,
         cantidad: this.producto.dataModal.cantidadProductos,
-        Subtotal: subtotal,
+        subTotal: subtotal,
       });
     },
   },
