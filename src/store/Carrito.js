@@ -73,7 +73,7 @@ const Carrito = {
         if (state.arrayProductos[i].dataModal.dataProducto.id == payload.id) {
           state.arrayProductos[i].dataModal.cantidadProductos =
             payload.cantidad;
-          state.arrayProductos[i].subTotal = payload.Subtotal;
+          state.arrayProductos[i].subTotal = payload.subTotal;
         }
       }
     },
